@@ -2,13 +2,16 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
     "outDir": "./out-tsc/spec",
+    "module": "CommonJS",
     "types": [
-      "jasmine"
+      "jest"
     ]
   },
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
-  ]
+  ],
+  "allowSyntheticDefaultImports": true
 }

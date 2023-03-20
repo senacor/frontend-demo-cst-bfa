@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainComponent should create 1`] = `
+<div
+  id="root0"
+>
+  <div
+    class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12"
+  >
+    <div
+      class="absolute inset-0 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"
+    />
+    <div
+      class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10"
+    >
+      <div
+        class="mx-auto max-w-md"
+      >
+        <div
+          class="divide-y divide-gray-300/50"
+        >
+           Frontend @ BA Example 
+          <div
+            class="space-y-6 py-8 text-base leading-7 text-gray-600"
+          >
+            <p>
+              This is a basic demonstration of the technologies that are being employed at a governmental agency. In this example we provide a credit card form, pass data between the form and the main page using ngrx for state management, use cypress for E2E tests and so forth...
+            </p>
+            <div
+              data-cy="credit-card-information"
+            >
+              <div>
+                 No credit card information available 
+              </div>
+              
+              
+            </div>
+          </div>
+          <div
+            class="pt-8 text-base font-semibold leading-7"
+          >
+            <button
+              class="inline-block rounded text-sky-500 hover:text-sky-600"
+              type="button"
+            >
+               Enter credit card information → 
+            </button>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

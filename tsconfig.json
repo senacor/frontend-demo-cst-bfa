@@ -22,12 +22,25 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "esModuleInterop": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": [
+    "src",
+    "cypress",
+    "cypress.config.ts",
+    "jest.config.ts",
+    "jest.pact.config.ts",
+    "pacts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
