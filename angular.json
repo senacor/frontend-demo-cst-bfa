@@ -51,6 +51,12 @@
                   "maximumError": "4kb"
                 }
               ],
+              "fileReplacements": [
+                {
+                  "replace": "src/app/core/state/devtool-import.ts",
+                  "replaceWith": "src/app/core/state/devtool-import.prod.ts"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
@@ -103,5 +109,13 @@
         }
       }
     }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "cli": {
+    "analytics": false,
   }
 }

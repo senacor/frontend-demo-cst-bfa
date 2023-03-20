@@ -19,6 +19,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+*.iml
 
 # Visual Studio Code
 .vscode/*
@@ -40,3 +41,14 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# pacts server log
+pacts/mock-server*.log
+
+# cypress resources
+cypress/videos
+cypress/screenshots
+
+# ssl for local autocompletion
+ssl/localhost.crt
+ssl/localhost.key
