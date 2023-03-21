@@ -26,4 +26,4 @@ Funktionalität: Bearbeitung der Formularstrecke
   Szenario: Löschen von eingegebenen Kreditkarteninformationen funktioniert wie erwartet
     Wenn ich Kreditkartendaten eingegeben habe
     Und auf den "Delete credit card information" Button klicke
-    Und zeigt das Formular im Kreditkartenabschnitt den Text "No credit card information available" an
+    Und das Formular zeigt im Kreditkartenabschnitt den Text "No credit card information available" an

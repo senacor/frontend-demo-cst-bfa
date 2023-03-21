@@ -157,10 +157,6 @@ When(/ich Kreditkartendaten eingegeben habe/, () => {
   cy.get('[data-cy="cc-ccv"]')
     .should('contain', `CCV: ${ccv}`);
 });
-Then(/zeigt das Formular im Kreditkartenabschnitt den Text "([^"]*)" an/, (message: string) => {
-  cy.get('[data-cy="credit-card-information"]')
-    .should('contain.text', message);
-});
 
 Then(/wird die Fehlermeldung "([^"]*)" angezeigt/, (errorMessage: string) => {
   cy.get('[data-cy="error-message"]')

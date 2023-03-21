@@ -15,7 +15,8 @@
     "cypress": "cypress",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "e2e": "start-server-and-test start http://localhost:4200 cypress:run"
+    "e2e": "start-server-and-test start http://localhost:4200 cypress:run",
+    "e2e:open": "start-server-and-test start http://localhost:4200 cypress:open"
   },
   "private": true,
   "dependencies": {
