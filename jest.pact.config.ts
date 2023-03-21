@@ -4,6 +4,7 @@ const config: Config = {
   preset: 'jest-preset-angular',
   setupFilesAfterEnv: [
     '<rootDir>/setup-jest.ts',
+    '<rootDir>/src/setup-jest.ts',
     '<rootDir>/pacts/setup-jest.ts',
   ],
   testMatch: [

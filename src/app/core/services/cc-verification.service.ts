@@ -13,7 +13,7 @@ export class CcVerificationService {
 
   verifyCreditCardInformation(creditCard: CreditCard): Observable<CreditCard> {
     return this.httpClient
-      .post<CreditCard>('/credit-card/verify', {
+      .post<CreditCard>('http://localhost:8080/credit-card/verify', {
       ccNumber: creditCard.ccNumber,
       expiration: creditCard.expiration,
     })

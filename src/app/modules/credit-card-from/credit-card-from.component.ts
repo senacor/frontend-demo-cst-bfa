@@ -27,7 +27,7 @@ export class CreditCardFromComponent implements AfterViewChecked {
     creditCardHolder: new FormControl('', [Validators.required, Validators.minLength(5)]),
     creditCardNumber: new FormControl('', [Validators.required, Validators.pattern('^\\d{4} \\d{4} \\d{4} \\d{4}$')]),
     creditCardExpiration: new FormControl('', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/\\d{2}$')]),
-    creditCardVerification: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    creditCardVerification: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(4)]),
   });
 
   constructor(
@@ -58,13 +58,13 @@ export class CreditCardFromComponent implements AfterViewChecked {
       };
 
       // call backend verification service
-      this.ccService.verifyCreditCardInformation(creditCard).subscribe({
-        next: (verifiedCreditCard: CreditCard) => {
-          this.store.dispatch(addCreditCardInformation({ creditCard: verifiedCreditCard }));
-          this.router.navigate(['/main'], { replaceUrl: true });
-        },
-        error: () => {},
-      });
+      //this.ccService.verifyCreditCardInformation(creditCard).subscribe({
+      //  next: (verifiedCreditCard: CreditCard) => {
+      this.store.dispatch(addCreditCardInformation({ creditCard: creditCard }));
+      this.router.navigate(['/main'], { replaceUrl: true });
+      //  },
+      //  error: () => {},
+      //});
     }
   }
 
@@ -115,7 +115,7 @@ export class CreditCardFromComponent implements AfterViewChecked {
   }
 
   updateExpiryInput(value: string) {
-    const sanitizedInput = (value as string).replace(/^\D/g, '').replace(/\./, '').replace(/\//, '');
+    const sanitizedInput = (value as string).replace(/^\D/g, '').replace(/\./g, '').replace(/\//g, '');
     const formattedValue = sanitizedInput.replace(/^(0[1-9]|1[0-2])/, '$1/').replace(/^(0[1-9]|1[0-2])(\d{2})/, '$1/$2');
     this.creditCardForm.get('creditCardExpiration')?.patchValue(formattedValue, { emitEvent: false, onlySelf: true });
   }
