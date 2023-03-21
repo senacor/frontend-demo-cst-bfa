@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreditCardFromComponent should create 1`] = `
+<div
+  id="root0"
+>
+  <div
+    class="mx-auto max-w-md w-full p-6 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700"
+  >
+    <form
+      class="ng-untouched ng-pristine ng-invalid"
+      novalidate=""
+    >
+      <div>
+        <div>
+          Credit Card Information
+        </div>
+        <div
+          class="cc-types"
+        >
+          <img
+            class="cc-types__img cc-types__img--amex"
+          />
+          <img
+            class="cc-types__img cc-types__img--visa"
+          />
+          <img
+            class="cc-types__img cc-types__img--mastercard"
+          />
+          <img
+            class="cc-types__img cc-types__img--disc"
+          />
+          <img
+            class="cc-types__img cc-types__img--generic"
+          />
+        </div>
+        <div
+          class="mb-6"
+        >
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            for="cc-holder-input"
+          >
+             Name on card 
+          </label>
+          <input
+            autocomplete="cc-name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ng-untouched ng-pristine ng-invalid"
+            data-cy="cc-holder-input"
+            formcontrolname="creditCardHolder"
+            id="cc-holder-input"
+            maxlength="60"
+            type="text"
+            x-autocompletetype="cc-name"
+          />
+        </div>
+        <div
+          class="mb-6"
+        >
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            for="cc-number-input"
+          >
+             Credit card number 
+          </label>
+          <input
+            autocomplete="cc-number"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ng-untouched ng-pristine ng-invalid"
+            data-cy="cc-number-input"
+            formcontrolname="creditCardNumber"
+            id="cc-number-input"
+            maxlength="19"
+            type="text"
+            x-autocompletetype="cc-number"
+          />
+        </div>
+        <div
+          class="mb-6"
+        >
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            for="cc-expiry-input"
+          >
+             Credit card expiration 
+          </label>
+          <input
+            autocomplete="cc-exp"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ng-untouched ng-pristine ng-invalid"
+            data-cy="cc-expiry-input"
+            formcontrolname="creditCardExpiration"
+            id="cc-expiry-input"
+            maxlength="5"
+            placeholder="MM/YY"
+            type="text"
+            x-autocompletetype="cc-exp"
+          />
+        </div>
+        <div
+          class="mb-6"
+        >
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            for="cc-cvc-input"
+          >
+             CCV 
+          </label>
+          <input
+            autocomplete="cc-csc"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ng-untouched ng-pristine ng-invalid"
+            data-cy="cc-cvc-input"
+            formcontrolname="creditCardVerification"
+            id="cc-cvc-input"
+            maxlength="4"
+            type="text"
+            x-autocompletetype="cc-csc"
+          />
+        </div>
+        <button
+          class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button"
+        >
+           Apply credit card information 
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
