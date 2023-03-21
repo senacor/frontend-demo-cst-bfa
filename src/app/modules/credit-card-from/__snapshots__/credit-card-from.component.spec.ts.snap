@@ -34,6 +34,7 @@ exports[`CreditCardFromComponent should create 1`] = `
             class="cc-types__img cc-types__img--generic"
           />
         </div>
+        
         <div
           class="mb-6"
         >

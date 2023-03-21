@@ -1,4 +1,4 @@
-# Frontend Bundesagentur Example
+# Frontend Agency Example
 
 This is a sample application to demonstrate the technologies used in a public agency.
 It uses the following technology stack:

@@ -21,9 +21,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should have as title \'frontend-bundesagentur-example\'', () => {
+  it('should have as title \'frontend-example\'', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('frontend-bundesagentur-example');
+    expect(app.title).toEqual('frontend-example');
   });
 });
