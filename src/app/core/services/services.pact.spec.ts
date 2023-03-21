@@ -10,7 +10,7 @@ describe('Generate pact contract', () => {
     log: path.resolve(__dirname, '..', '..', '..', '..', 'pacts', 'mock-server.log'),
     dir: path.resolve(__dirname, '..', '..', '..', '..', 'pacts'),
     spec: 3,
-    logLevel: 'info',
+    logLevel: 'debug',
     consumer: 'credit-card-form',
     provider: 'credit-card-backend',
     pactfileWriteMode: 'overwrite',

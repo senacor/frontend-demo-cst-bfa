@@ -14,6 +14,13 @@
       <img class="cc-types__img cc-types__img--generic">
     </div>
 
+    <div *ngIf="errorMessage !== ''">
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <strong data-cy="error-message">{{errorMessage}}</strong>
+      </div>
+      <br>
+    </div>
+
     <div class="mb-6">
       <label for="cc-holder-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
         Name on card

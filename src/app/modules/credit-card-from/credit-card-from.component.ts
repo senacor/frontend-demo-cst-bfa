@@ -30,6 +30,8 @@ export class CreditCardFromComponent implements AfterViewChecked {
     creditCardVerification: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(4)]),
   });
 
+  errorMessage: string = '';
+
   constructor(
     private router: Router,
     private store: Store,
@@ -49,6 +51,7 @@ export class CreditCardFromComponent implements AfterViewChecked {
   }
 
   checkAndApplyForm() {
+    this.errorMessage = '';
     if (this.creditCardForm.valid) {
       const creditCard: CreditCard = {
         holder: this.creditCardForm.value.creditCardHolder ?? '',
@@ -58,13 +61,17 @@ export class CreditCardFromComponent implements AfterViewChecked {
       };
 
       // call backend verification service
-      //this.ccService.verifyCreditCardInformation(creditCard).subscribe({
-      //  next: (verifiedCreditCard: CreditCard) => {
-      this.store.dispatch(addCreditCardInformation({ creditCard: creditCard }));
-      this.router.navigate(['/main'], { replaceUrl: true });
-      //  },
-      //  error: () => {},
-      //});
+      this.ccService.verifyCreditCardInformation(creditCard).subscribe({
+        next: (verifiedCreditCard: CreditCard) => {
+          this.store.dispatch(addCreditCardInformation({ creditCard: verifiedCreditCard }));
+          this.router.navigate(['/main'], { replaceUrl: true });
+        },
+        error: (error: Error) => {
+          this.errorMessage = error.message;
+        },
+      });
+    } else {
+      this.errorMessage = 'The form is invalid, please check again';
     }
   }
 

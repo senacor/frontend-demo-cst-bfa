@@ -14,8 +14,10 @@ export class CcVerificationService {
   verifyCreditCardInformation(creditCard: CreditCard): Observable<CreditCard> {
     return this.httpClient
       .post<CreditCard>('http://localhost:8080/credit-card/verify', {
+      holder: creditCard.holder,
       ccNumber: creditCard.ccNumber,
       expiration: creditCard.expiration,
+      ccv: creditCard.ccv,
     })
       .pipe(
         retry(2),
@@ -27,6 +29,9 @@ export class CcVerificationService {
           }
 
           if (error.status >= 400 && error.status < 500) {
+            if(error.status === 412) {
+              return throwError(() => new Error('The credit card is expired'));
+            }
             return throwError(() => new Error('Request error'));
           }
 

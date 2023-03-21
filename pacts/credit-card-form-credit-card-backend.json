@@ -1,0 +1,137 @@
+{
+  "consumer": {
+    "name": "credit-card-form"
+  },
+  "provider": {
+    "name": "credit-card-backend"
+  },
+  "interactions": [
+    {
+      "description": "a request to verify the credit card with number 4998 1234 5678 9345",
+      "providerState": "provider knows the syntax of a credit card",
+      "request": {
+        "method": "POST",
+        "path": "/credit-card/verify",
+        "body": {
+          "holder": "Robert Habeck",
+          "ccNumber": "4998 1234 5678 9345",
+          "expiration": "09/26",
+          "ccv": "408"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "holder": "Robert Habeck",
+          "ccNumber": "4998 1234 5678 9345",
+          "expiration": "09/26",
+          "ccv": "408"
+        },
+        "matchingRules": {
+          "$.body.holder": {
+            "match": "type"
+          },
+          "$.body.ccNumber": {
+            "match": "type"
+          },
+          "$.body.expiration": {
+            "match": "type"
+          },
+          "$.body.ccv": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to verify the credit card with number 5355 6723 1785 8940",
+      "providerState": "provider knows the syntax of a credit card",
+      "request": {
+        "method": "POST",
+        "path": "/credit-card/verify",
+        "body": {
+          "holder": "Brunhilde von Schöppingen",
+          "ccNumber": "5355 6723 1785 8940",
+          "expiration": "04/28",
+          "ccv": "123"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "holder": "Brunhilde von Schöppingen",
+          "ccNumber": "5355 6723 1785 8940",
+          "expiration": "04/28",
+          "ccv": "123"
+        },
+        "matchingRules": {
+          "$.body.holder": {
+            "match": "type"
+          },
+          "$.body.ccNumber": {
+            "match": "type"
+          },
+          "$.body.expiration": {
+            "match": "type"
+          },
+          "$.body.ccv": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to verify the expired credit card with number 4998 1234 5678 9345",
+      "providerState": "provider knows the syntax of a credit card",
+      "request": {
+        "method": "POST",
+        "path": "/credit-card/verify",
+        "body": {
+          "holder": "Robert Habeck",
+          "ccNumber": "4998 1234 5678 9345",
+          "expiration": "04/21",
+          "ccv": "408"
+        },
+        "matchingRules": {
+          "$.body.holder": {
+            "match": "type"
+          },
+          "$.body.ccNumber": {
+            "match": "type"
+          },
+          "$.body.expiration": {
+            "match": "type"
+          },
+          "$.body.ccv": {
+            "match": "type"
+          }
+        }
+      },
+      "response": {
+        "status": 412,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "error": "The credit card is expired"
+        },
+        "matchingRules": {
+          "$.body.error": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  }
+}

@@ -1,6 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { defineStep as And, Then, When, Given } from '@badeball/cypress-cucumber-preprocessor';
 
+const cardValidationRequestAlias = 'postCardVerify';
+const consumer = "credit-card-form";
+const provider = 'credit-card-backend';
+
 beforeEach(() => {
   cy.viewport(1280, 720);
 });
@@ -39,10 +43,38 @@ And(/ich in das Kreditkartenformular die Daten "([^"]*)" "([^"]*)" "([^"]*)" "([
     .type(ccv);
 });
 
-And(/auf den "([^"]*)" Button klicke/, (buttonText: string) => {
+And(/ich erwarte, dass die Verifikation im Backend erfolgreich verläuft/, () => {
+  cy.interceptPact(
+    consumer,
+    provider,
+    `a request to verify the credit card with number 4998 1234 5678 9345`,
+    `provider knows the syntax of a credit card`,
+    cardValidationRequestAlias,
+  );
+});
+And(/ich erwarte, dass die Verifikation im Backend wegen einem Datum in der Vergangenheit fehlschlägt/, () => {
+  cy.interceptPact(
+    consumer,
+    provider,
+    `a request to verify the expired credit card with number 4998 1234 5678 9345`,
+    `provider knows the syntax of a credit card`,
+    cardValidationRequestAlias,
+    3,
+  );
+});
+
+And(/auf den "Delete credit card information" Button klicke/, () => {
   cy.get('button')
-    .contains(buttonText)
+    .contains('Delete credit card information')
     .click();
+});
+
+And(/auf den "Apply credit card information" Button klicke/, () => {
+  cy.get('button')
+    .contains('Apply credit card information')
+    .click();
+
+  cy.wait(['@'+ cardValidationRequestAlias]);
 });
 
 Then(/befinde ich mich auf der Übersichtsseite/, () => {
@@ -99,9 +131,19 @@ When(/ich Kreditkartendaten eingegeben habe/, () => {
   cy.get('[data-cy="cc-cvc-input"]')
     .type(ccv);
 
+  cy.interceptPact(
+    consumer,
+    provider,
+    `a request to verify the credit card with number 4998 1234 5678 9345`,
+    `provider knows the syntax of a credit card`,
+    cardValidationRequestAlias,
+  );
+
   cy.get('button')
     .contains('Apply credit card information')
     .click();
+
+  cy.wait(['@' + cardValidationRequestAlias]);
 
   cy.get('[data-cy="cc-account-holder"]')
     .should('contain', `Account holder: ${accountHolder}`);
@@ -118,4 +160,9 @@ When(/ich Kreditkartendaten eingegeben habe/, () => {
 Then(/zeigt das Formular im Kreditkartenabschnitt den Text "([^"]*)" an/, (message: string) => {
   cy.get('[data-cy="credit-card-information"]')
     .should('contain.text', message);
+});
+
+Then(/wird die Fehlermeldung "([^"]*)" angezeigt/, (errorMessage: string) => {
+  cy.get('[data-cy="error-message"]')
+    .should('contain', errorMessage);
 });
